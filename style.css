@@ -1,0 +1,461 @@
+/* ------------------------------------------------------------------
+   Iniciativa Rust — estilos del deck
+   Lienzo de 1920×1080 (canvasWidth: 1920): todas las medidas en px.
+   ------------------------------------------------------------------ */
+
+:root {
+  --ww-dark: #1c1917;
+  --ww-light: #faf7f2;
+  --ww-card: #f1ece4;
+  --ww-card-2: #e7e1d8;
+  --ww-line: rgba(28, 25, 23, 0.06);
+  --ww-accent: #c2410c;
+  --ww-accent-bright: #f97316;
+  --ww-accent-tint: rgba(194, 65, 12, 0.1);
+  --ww-text: #1c1917;
+  --ww-muted: #57534e;
+  --ww-muted-dark: #d6d3d1;
+  --ww-sans: 'Inter', Arial, sans-serif;
+  --ww-display: 'Space Grotesk', Arial, sans-serif;
+}
+
+/* ---------- Base de los layouts ---------- */
+
+.slidev-layout.ww {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 128px;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--ww-sans);
+  font-size: 32px;
+  line-height: 1.4;
+  background: var(--ww-light);
+  color: var(--ww-text);
+}
+
+.slidev-layout.ww * {
+  box-sizing: border-box;
+}
+
+/* Anula márgenes y opacidades del tema default */
+.slidev-layout.ww :is(h1, h2, h3, p, ul, ol, li) {
+  margin: 0;
+  opacity: 1;
+}
+
+.slidev-layout.ww-dark {
+  background: var(--ww-dark);
+  color: var(--ww-light);
+}
+
+.slidev-layout.ww .ww-eyebrow,
+.slidev-layout.ww .ww-card-eyebrow,
+.slidev-layout.ww .ww-side-year {
+  font: 600 24px/1.4 var(--ww-sans);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ww-accent);
+}
+
+.slidev-layout.ww-dark .ww-eyebrow {
+  color: var(--ww-accent-bright);
+}
+
+/* ---------- Layout: contenido ---------- */
+
+.slidev-layout.ww-contenido .ww-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.slidev-layout.ww-contenido .ww-eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.slidev-layout.ww-contenido > h1 {
+  font: 600 72px/1.1 var(--ww-display);
+  letter-spacing: -1px;
+  margin-bottom: 64px;
+  color: inherit;
+}
+
+.slidev-layout.ww-contenido.ww-tight > h1 {
+  margin-bottom: 40px;
+}
+
+/* ---------- Layout: declaracion (portada y cierre) ---------- */
+
+.slidev-layout.ww-declaracion {
+  justify-content: center;
+  gap: 40px;
+}
+
+.slidev-layout.ww-declaracion.ww-align-end {
+  justify-content: flex-end;
+  gap: 32px;
+}
+
+.slidev-layout.ww-declaracion h1 {
+  font: 700 140px/1.05 var(--ww-display);
+  letter-spacing: -2px;
+  color: inherit;
+}
+
+.slidev-layout.ww-declaracion.ww-size-lg h1 {
+  font: 600 96px/1.1 var(--ww-display);
+}
+
+.slidev-layout.ww-declaracion p:not(.ww-eyebrow) {
+  font-size: 44px;
+  line-height: 1.3;
+  color: var(--ww-muted-dark);
+}
+
+.slidev-layout.ww-declaracion h2 {
+  font: 600 44px/1.3 var(--ww-display);
+  color: var(--ww-accent-bright);
+}
+
+.slidev-layout.ww-declaracion.ww-big-h2 h2 {
+  font: 700 120px/1.05 var(--ww-display);
+  letter-spacing: -2px;
+}
+
+.slidev-layout.ww .ww-bar {
+  width: 160px;
+  height: 12px;
+  border-radius: 6px;
+  background: var(--ww-accent-bright);
+}
+
+/* Logo de Rust: se pinta con el color de acento usando el SVG oficial como máscara */
+.slidev-layout.ww .ww-logo {
+  position: absolute;
+  right: 128px;
+  width: 400px;
+  height: 400px;
+  background: var(--ww-accent-bright);
+  -webkit-mask: url('/rust-logo.svg') center / contain no-repeat;
+  mask: url('/rust-logo.svg') center / contain no-repeat;
+}
+
+.slidev-layout.ww .ww-logo-top {
+  top: 128px;
+}
+
+.slidev-layout.ww .ww-logo-bottom {
+  bottom: 128px;
+}
+
+/* ---------- Tarjetas: <Cards> y <Card> ---------- */
+
+.slidev-layout.ww .ww-cards {
+  flex: 1;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 32px;
+}
+
+.slidev-layout.ww .ww-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 48px;
+  background: var(--ww-card);
+  border: 1px solid var(--ww-line);
+  border-radius: 20px;
+}
+
+.slidev-layout.ww .ww-card.ww-card-top {
+  border-top: 8px solid var(--ww-accent);
+}
+
+.slidev-layout.ww .ww-badge {
+  flex: none;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background: var(--ww-accent-tint);
+}
+
+.slidev-layout.ww .ww-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--ww-accent);
+}
+
+.slidev-layout.ww .ww-card h3 {
+  font: 600 44px/1.15 var(--ww-display);
+  color: inherit;
+}
+
+.slidev-layout.ww .ww-card :is(p:not(.ww-card-eyebrow), ul) {
+  font-size: 32px;
+  line-height: 1.4;
+  color: var(--ww-muted);
+}
+
+.slidev-layout.ww .ww-card ul {
+  list-style: disc;
+  padding-left: 1.2em;
+}
+
+.slidev-layout.ww .ww-card li {
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.slidev-layout.ww .ww-card li::marker {
+  color: var(--ww-accent);
+}
+
+/* Número grande de fondo (por ejemplo, el número de etapa) */
+.slidev-layout.ww .ww-card-number {
+  position: absolute;
+  right: 36px;
+  bottom: -48px;
+  font: 700 260px/1 var(--ww-display);
+  color: var(--ww-accent);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* ---------- Antes / después: <Compare>, <Side>, <CompareArrow> ---------- */
+
+.slidev-layout.ww .ww-compare {
+  flex: 1;
+  display: flex;
+  gap: 48px;
+}
+
+.slidev-layout.ww .ww-side {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 48px 56px;
+  background: var(--ww-card-2);
+  border-radius: 20px;
+}
+
+.slidev-layout.ww .ww-side-year {
+  color: var(--ww-muted);
+}
+
+.slidev-layout.ww .ww-side-headline {
+  font: 700 72px/1.1 var(--ww-display);
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.slidev-layout.ww .ww-side ul {
+  list-style: none;
+  padding: 0;
+  font: 600 30px/1.25 var(--ww-display);
+  color: var(--ww-muted);
+}
+
+.slidev-layout.ww .ww-side li {
+  position: relative;
+  padding-left: 36px;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.slidev-layout.ww .ww-side li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--ww-accent);
+}
+
+.slidev-layout.ww .ww-side-dark {
+  background: var(--ww-dark);
+  color: var(--ww-light);
+}
+
+.slidev-layout.ww .ww-side-dark .ww-side-year {
+  color: var(--ww-accent-bright);
+}
+
+.slidev-layout.ww .ww-side-dark ul {
+  color: var(--ww-muted-dark);
+}
+
+.slidev-layout.ww .ww-side-dark li::before {
+  background: var(--ww-accent-bright);
+}
+
+.slidev-layout.ww .ww-arrow {
+  flex: none;
+  align-self: center;
+  width: 112px;
+  height: 56px;
+  fill: var(--ww-accent);
+}
+
+/* ---------- Etapas: <Stages>, <Stage> ---------- */
+
+.slidev-layout.ww .ww-stages {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.slidev-layout.ww .ww-stage {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 40px 48px;
+  background: var(--ww-card);
+  border: 1px solid var(--ww-line);
+  border-left: 8px solid var(--ww-accent);
+  border-radius: 20px;
+}
+
+.slidev-layout.ww .ww-stage-head {
+  flex: none;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slidev-layout.ww .ww-stage-head h3 {
+  font: 600 44px/1.15 var(--ww-display);
+}
+
+.slidev-layout.ww .ww-stage-body {
+  flex: 1;
+  color: var(--ww-muted);
+}
+
+.slidev-layout.ww .ww-stage-body p {
+  font-size: 32px;
+  line-height: 1.4;
+}
+
+.slidev-layout.ww .ww-pill {
+  flex: none;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 24px;
+  font: 600 32px/1.4 var(--ww-sans);
+  border-radius: 999px;
+}
+
+.slidev-layout.ww .ww-pill-completa {
+  background: var(--ww-accent);
+  color: var(--ww-light);
+}
+
+.slidev-layout.ww .ww-pill-casi {
+  background: var(--ww-light);
+  color: var(--ww-text);
+  border: 3px dashed var(--ww-accent);
+}
+
+.slidev-layout.ww .ww-pill-icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* ---------- Frentes: <Bento> ---------- */
+
+/* 6 columnas: cada tarjeta ocupa 2 (3 por fila); con 5 tarjetas,
+   las 2 de abajo se reparten la fila (3 columnas cada una) */
+.slidev-layout.ww .ww-bento {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.slidev-layout.ww .ww-bento > .ww-card {
+  grid-column: span 2;
+}
+
+.slidev-layout.ww .ww-bento:has(> .ww-card:nth-child(5):last-child) > .ww-card:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+.slidev-layout.ww .ww-bento .ww-card {
+  gap: 14px;
+  padding: 28px 36px;
+}
+
+.slidev-layout.ww .ww-bento .ww-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  margin-bottom: 4px;
+}
+
+.slidev-layout.ww .ww-bento .ww-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.slidev-layout.ww .ww-bento .ww-card h3 {
+  font-size: 36px;
+}
+
+.slidev-layout.ww .ww-bento .ww-card p {
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+/* ---------- Proyectos: <Projects>, <Project> ---------- */
+
+/* 4 proyectos por fila, todos del mismo tamaño */
+.slidev-layout.ww .ww-projects {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  gap: 24px;
+}
+
+.slidev-layout.ww .ww-project {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 36px;
+  background: var(--ww-card);
+  border: 1px solid var(--ww-line);
+  border-top: 6px solid var(--ww-accent);
+  border-radius: 20px;
+}
+
+.slidev-layout.ww .ww-project-name {
+  font: 700 44px/1.1 var(--ww-display);
+  letter-spacing: -0.5px;
+}
+
+.slidev-layout.ww .ww-project-desc {
+  font-size: 28px;
+  line-height: 1.35;
+  color: var(--ww-muted);
+}

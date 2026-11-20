@@ -1,0 +1,16 @@
+{
+  "name": "iniciativa-rust",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@iconify-json/carbon": "^1.2.30",
+    "@slidev/cli": "^53.1.0",
+    "@slidev/theme-default": "^0.25.0",
+    "vue": "^3.5.0"
+  }
+}
