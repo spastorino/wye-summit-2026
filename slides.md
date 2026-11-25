@@ -207,7 +207,7 @@ Estamos mucho más armados comercialmente.
 </Bento>
 
 <!--
-Afianzar relación con AWS: hoy son 4 proyectos. Contar cómo fue creciendo el equipo: Juli, Facu x 2, luego Franco, luego Tina y luego Emi. Pasamos de trabajar muy cerca con Russel a tener cierta autonomía.
+Afianzar relación con AWS: hoy son 4 proyectos. Contar cómo fue creciendo el equipo: Juli, Facu x 2, luego Franco, luego Tina y luego Emi. Pasamos de trabajar muy cerca con Russel a tener cierta autonomía. Estamos armando proyect goals para definir trabajo 2027.
 
 2do cliente: vamos por buen camino, pero esto se demuestra con proyectos concretos. Hoy todo el ingreso de la iniciativa viene de un solo cliente.
 
