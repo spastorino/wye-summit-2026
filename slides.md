@@ -143,11 +143,11 @@ tight: true
 # Problemas difíciles y copados
 
 <Projects>
-<Project name="Metrique">[Una línea sobre el proyecto]</Project>
-<Project name="Dial9">[Una línea sobre el proyecto]</Project>
+<Project name="Metrique">Low overhead wide-event metrics</Project>
+<Project name="Dial9">Flight recorder for Tokio and Rust</Project>
 <Project name="nextest">Productionize Test Caching</Project>
 <Project name="sccache">Remote Execution</Project>
-<Project name="Symposium">[Una línea sobre el proyecto]</Project>
+<Project name="Symposium">Making AI write better rust</Project>
 <Project name="HR Subtyping">Convert HR Subtyping into a coercion</Project>
 <Project name="AFIDT">Async Functions in Dyn Traits</Project>
 <Project name="Bench">Investigando Solana</Project>
